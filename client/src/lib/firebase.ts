@@ -1,18 +1,20 @@
-import { initializeApp } from 'firebase/app';
+import { initializeApp, getApps, getApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';
 import { getStorage } from 'firebase/storage';
 
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_FIREBASE_API_KEY || "demo-api-key",
-  authDomain: `${import.meta.env.VITE_FIREBASE_PROJECT_ID || "demo-project"}.firebaseapp.com`,
-  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID || "demo-project",
-  storageBucket: `${import.meta.env.VITE_FIREBASE_PROJECT_ID || "demo-project"}.firebasestorage.app`,
-  appId: import.meta.env.VITE_FIREBASE_APP_ID || "demo-app-id"
+  apiKey: "AIzaSyBxIVuBFCzMR7nDZSwEqSGdvsazhob1tC8",
+  authDomain: "vision-37a11.firebaseapp.com",
+  projectId: "vision-37a11",
+  storageBucket: "vision-37a11.firebasestorage.app",
+  messagingSenderId: "339562247240",
+  appId: "1:339562247240:web:15b3dfdf1e113b9b45547d",
+  measurementId: "G-RM5ZNESMQ8"
 };
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
+// Initialize Firebase (avoid duplicate initialization during hot reloads)
+const app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApp();
 
 // Initialize Firebase Authentication and get a reference to the service
 export const auth = getAuth(app);
