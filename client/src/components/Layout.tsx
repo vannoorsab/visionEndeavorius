@@ -41,11 +41,11 @@ export default function Layout({ children }: LayoutProps) {
           <div className="flex justify-between items-center h-20">
             {/* Logo */}
             <Link href="/" className="flex items-center space-x-3 text-decoration-none group" onClick={closeMobileMenu}>
-              <div className="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+              <div className="w-12 h-12 bg-gradient-to-br from-primary to-primary/80 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                 <span className="text-2xl">🌍</span>
               </div>
               <div className="hidden sm:block">
-                <span className="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                <span className="text-2xl font-bold bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">
                   Vision Endeavours
                 </span>
                 <div className="text-xs text-muted-foreground font-medium">Make a Difference</div>
@@ -60,7 +60,7 @@ export default function Layout({ children }: LayoutProps) {
                     <button className={`flex items-center px-4 py-2 rounded-xl font-medium transition-all duration-300 ${
                       isActive('/dashboard') 
                         ? 'bg-primary text-primary-foreground shadow-lg scale-105' 
-                        : 'text-muted-foreground hover:text-foreground hover:bg-muted/50 hover:scale-105'
+                        : 'text-muted-foreground hover:text-foreground hover:bg-primary/10 hover:scale-105'
                     }`}>
                       <Home className="h-5 w-5 mr-2" />
                       Dashboard
@@ -69,8 +69,8 @@ export default function Layout({ children }: LayoutProps) {
                   <Link href="/explore" data-testid="nav-explore">
                     <button className={`flex items-center px-4 py-2 rounded-xl font-medium transition-all duration-300 ${
                       isActive('/explore') 
-                        ? 'bg-secondary text-secondary-foreground shadow-lg scale-105' 
-                        : 'text-muted-foreground hover:text-foreground hover:bg-muted/50 hover:scale-105'
+                        ? 'bg-primary text-primary-foreground shadow-lg scale-105' 
+                        : 'text-muted-foreground hover:text-foreground hover:bg-primary/10 hover:scale-105'
                     }`}>
                       <Compass className="h-5 w-5 mr-2" />
                       Explore
@@ -79,8 +79,8 @@ export default function Layout({ children }: LayoutProps) {
                   <Link href="/certificates" data-testid="nav-certificates">
                     <button className={`flex items-center px-4 py-2 rounded-xl font-medium transition-all duration-300 ${
                       isActive('/certificates') 
-                        ? 'bg-accent text-accent-foreground shadow-lg scale-105' 
-                        : 'text-muted-foreground hover:text-foreground hover:bg-muted/50 hover:scale-105'
+                        ? 'bg-primary text-primary-foreground shadow-lg scale-105' 
+                        : 'text-muted-foreground hover:text-foreground hover:bg-primary/10 hover:scale-105'
                     }`}>
                       <Award className="h-5 w-5 mr-2" />
                       Certificates
@@ -89,8 +89,8 @@ export default function Layout({ children }: LayoutProps) {
                   <Link href="/profile" data-testid="nav-profile">
                     <button className={`flex items-center px-4 py-2 rounded-xl font-medium transition-all duration-300 ${
                       isActive('/profile') 
-                        ? 'bg-gradient-to-r from-primary to-secondary text-white shadow-lg scale-105' 
-                        : 'text-muted-foreground hover:text-foreground hover:bg-muted/50 hover:scale-105'
+                        ? 'bg-gradient-to-r from-primary to-primary/80 text-white shadow-lg scale-105' 
+                        : 'text-muted-foreground hover:text-foreground hover:bg-primary/10 hover:scale-105'
                     }`}>
                       <User className="h-5 w-5 mr-2" />
                       Profile
@@ -146,7 +146,7 @@ export default function Layout({ children }: LayoutProps) {
                   onClick={closeMobileMenu}
                   className={`w-full flex items-center px-4 py-3 rounded-xl font-medium text-left transition-all duration-300 ${
                     isActive('/explore') 
-                      ? 'bg-secondary text-secondary-foreground shadow-lg scale-[1.02]' 
+                      ? 'bg-primary text-primary-foreground shadow-lg scale-[1.02]' 
                       : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
                   }`}
                 >
@@ -159,7 +159,7 @@ export default function Layout({ children }: LayoutProps) {
                   onClick={closeMobileMenu}
                   className={`w-full flex items-center px-4 py-3 rounded-xl font-medium text-left transition-all duration-300 ${
                     isActive('/certificates') 
-                      ? 'bg-accent text-accent-foreground shadow-lg scale-[1.02]' 
+                      ? 'bg-primary text-primary-foreground shadow-lg scale-[1.02]' 
                       : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
                   }`}
                 >
@@ -172,7 +172,7 @@ export default function Layout({ children }: LayoutProps) {
                   onClick={closeMobileMenu}
                   className={`w-full flex items-center px-4 py-3 rounded-xl font-medium text-left transition-all duration-300 ${
                     isActive('/profile') 
-                      ? 'bg-gradient-to-r from-primary to-secondary text-white shadow-lg scale-[1.02]' 
+                      ? 'bg-gradient-to-r from-primary to-primary/80 text-white shadow-lg scale-[1.02]' 
                       : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
                   }`}
                 >

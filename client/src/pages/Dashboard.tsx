@@ -46,7 +46,7 @@ export default function Dashboard() {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       {/* Welcome Section */}
-      <div className="bg-gradient-to-r from-primary to-secondary p-8 rounded-xl text-white mb-8">
+      <div className="bg-gradient-to-r from-primary to-primary/80 p-8 rounded-xl text-white mb-8">
         <h1 className="text-3xl font-bold mb-2" data-testid="text-welcome">
           Welcome back, {userProfile.displayName || 'Volunteer'}! 👋
         </h1>
@@ -73,8 +73,8 @@ export default function Dashboard() {
         <Card>
           <CardContent className="p-6">
             <div className="flex items-center">
-              <div className="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center">
-                <Tag className="text-secondary text-xl" />
+              <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
+                <Tag className="text-primary text-xl" />
               </div>
               <div className="ml-4">
                 <p className="text-2xl font-bold text-foreground" data-testid="text-certificates-count">
@@ -88,8 +88,8 @@ export default function Dashboard() {
         <Card>
           <CardContent className="p-6">
             <div className="flex items-center">
-              <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center">
-                <Clock className="text-accent text-xl" />
+              <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
+                <Clock className="text-primary text-xl" />
               </div>
               <div className="ml-4">
                 <p className="text-2xl font-bold text-foreground" data-testid="text-hours-volunteered">
@@ -115,11 +115,11 @@ export default function Dashboard() {
         </Link>
         
         <Link href="/certificates">
-          <Button className="w-full h-auto p-6 bg-secondary hover:bg-secondary/90 text-secondary-foreground flex-col space-y-2" data-testid="button-view-certificates">
+          <Button className="w-full h-auto p-6 bg-primary hover:bg-primary/90 text-primary-foreground flex-col space-y-2" data-testid="button-view-certificates">
             <Award className="text-3xl" />
             <div className="text-center">
               <h3 className="text-lg font-semibold">View Certificates</h3>
-              <p className="text-secondary-foreground/80 text-sm">Download your achievements</p>
+              <p className="text-primary-foreground/80 text-sm">Download your achievements</p>
             </div>
           </Button>
         </Link>
@@ -172,7 +172,7 @@ export default function Dashboard() {
                     </div>
                     <span className={`px-3 py-1 rounded-full text-sm font-medium ${
                       activity.status === 'completed' 
-                        ? 'bg-secondary/10 text-secondary' 
+                        ? 'bg-primary/10 text-primary' 
                         : 'bg-primary/10 text-primary'
                     }`}>
                       {activity.status === 'completed' ? 'Completed' : 'In Progress'}
