@@ -58,7 +58,10 @@ export default function Explore() {
   const [loading, setLoading] = useState<string | null>(null);
 
   const joinActivity = async (activity: Activity) => {
+    console.log('Explore: Join activity clicked for:', activity.title);
+    
     if (!userProfile) {
+      console.log('Explore: No user profile, showing authentication error');
       toast({
         title: "Authentication Required",
         description: "Please login to join activities",
@@ -67,7 +70,10 @@ export default function Explore() {
       return;
     }
 
+    console.log('Explore: User profile found:', userProfile.uid);
+
     if (joinedActivities.has(activity.id)) {
+      console.log('Explore: User already joined this activity');
       toast({
         title: "Already Joined",
         description: "You have already joined this activity",
@@ -77,6 +83,7 @@ export default function Explore() {
 
     try {
       setLoading(activity.id);
+      console.log('Explore: Starting join process...');
       
       const userActivity: Omit<UserActivity, 'id'> = {
         userId: userProfile.uid,
@@ -87,7 +94,9 @@ export default function Explore() {
         icon: activity.icon,
       };
 
+      console.log('Explore: About to add document to Firebase:', userActivity);
       await addDoc(collection(db, 'userActivities'), userActivity);
+      console.log('Explore: Document added successfully!');
       
       setJoinedActivities(prev => new Set(Array.from(prev).concat([activity.id])));
       
@@ -96,7 +105,8 @@ export default function Explore() {
         description: `Successfully joined ${activity.title}! Check your dashboard to see your registered activities.`,
       });
     } catch (error) {
-      console.error('Error joining activity:', error);
+      console.error('Explore ERROR joining activity:', error);
+      console.error('Explore ERROR details:', (error as Error).message);
       toast({
         title: "Error",
         description: "Failed to join activity. Please try again.",

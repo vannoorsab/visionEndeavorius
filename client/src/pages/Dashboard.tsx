@@ -15,12 +15,21 @@ export default function Dashboard() {
 
   useEffect(() => {
     const fetchUserActivities = async () => {
-      if (!userProfile) return;
+      if (!userProfile) {
+        console.log('Dashboard: No user profile available');
+        setLoading(false);
+        return;
+      }
 
+      console.log('Dashboard: Fetching activities for user:', userProfile.uid);
+      
       try {
         const activitiesRef = collection(db, 'userActivities');
         const q = query(activitiesRef, where('userId', '==', userProfile.uid));
+        console.log('Dashboard: About to query Firebase...');
+        
         const querySnapshot = await getDocs(q);
+        console.log('Dashboard: Query successful! Found', querySnapshot.docs.length, 'activities');
         
         const activities = querySnapshot.docs.map(doc => ({
           id: doc.id,
@@ -28,8 +37,10 @@ export default function Dashboard() {
         })) as UserActivity[];
 
         setUserActivities(activities);
+        console.log('Dashboard: Activities set:', activities);
       } catch (error) {
-        console.error('Error fetching user activities:', error);
+        console.error('Dashboard ERROR fetching user activities:', error);
+        console.error('Dashboard ERROR details:', (error as Error).message);
       } finally {
         setLoading(false);
       }
