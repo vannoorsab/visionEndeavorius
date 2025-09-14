@@ -12,15 +12,6 @@
     "check": "tsc",
     "db:push": "drizzle-kit push"
   },
-  "scripts": {
-  "build": "tsc",
-  "start": "NODE_ENV=production node dist/index.js",
-  "dev:client": "cd client && npm run dev",
-  "dev:server": "cross-env NODE_ENV=development tsx server/index.ts",
-  "dev": "concurrently \"npm run dev:client\" \"npm run dev:server\"",
-  "check": "tsc",
-  "db:push": "drizzle-kit push"
-  },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
     "@jridgewell/trace-mapping": "^0.3.25",
