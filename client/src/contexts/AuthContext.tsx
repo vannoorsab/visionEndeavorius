@@ -95,6 +95,9 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         
         if (userSnap.exists()) {
           setUserProfile(userSnap.data() as AppUser);
+          console.log('AuthContext: userProfile loaded', userSnap.data());
+        } else {
+          console.log('AuthContext: No userProfile found for', user.uid);
         }
       } else {
         setCurrentUser(null);
